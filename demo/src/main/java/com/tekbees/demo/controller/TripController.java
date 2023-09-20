@@ -42,7 +42,8 @@ public class TripController {
         return new ResponseEntity<>(service.listByCountry(), HttpStatus.OK);
     }
 
-    @PostMapping("/guardar")
+    @RequestMapping(value = "/guardar", method = RequestMethod.POST)
+    @ApiOperation(value = "Save a Trip", produces = "application/json")
     public ResponseEntity<?> guardar(@RequestBody Trip items) {
         System.out.println(items);
         return new ResponseEntity<>(service.guardar(items), HttpStatus.OK);
